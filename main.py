@@ -46,16 +46,22 @@ class Response:
         self.body = response[counter + 1:]
 
 
-response = Request.get( 'http://www.dom.kharkov.ua/')
+if __name__ == '__main__':
 
-print('\x1b[6;30;42m' + 'Protocol:' + '\x1b[0m')
-print(Response(response).protocol)
-print('\x1b[6;30;42m' + 'Code:' + '\x1b[0m')
-print(Response(response).code)
-print('\x1b[6;30;42m' + 'Status:' + '\x1b[0m')
-print(Response(response).status)
-print('\x1b[6;30;42m' + 'Headers:' + '\x1b[0m')
-print(Response(response).headers)
-print('\x1b[6;30;42m' + 'Body:' + '\x1b[0m')
-print(Response(response).body)
+    with open('setting.txt', 'r') as file:
+        file.seek(0)
+        text = file.read()
+
+    response = Request.get(text)
+
+    print('\x1b[6;30;42m' + 'Protocol:' + '\x1b[0m')
+    print(Response(response).protocol)
+    print('\x1b[6;30;42m' + 'Code:' + '\x1b[0m')
+    print(Response(response).code)
+    print('\x1b[6;30;42m' + 'Status:' + '\x1b[0m')
+    print(Response(response).status)
+    print('\x1b[6;30;42m' + 'Headers:' + '\x1b[0m')
+    print(Response(response).headers)
+    print('\x1b[6;30;42m' + 'Body:' + '\x1b[0m')
+    print(Response(response).body)
 
